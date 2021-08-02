@@ -25,11 +25,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name : install and pre install 
-         run :|
-              cd $PACKAGE_LOCATION
-              npm Install
-              npm run format
-              npm run lint
-              npm run build
-             - npm run test
+      - name: Build
+        run: |
+             cd $PACKAGE_LOCATION
+             npm Install
+             npm run format
+             npm run lint
+             npm run build
+             npm run test
