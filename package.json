@@ -19,5 +19,7 @@
     "format": "./package.sh both run format",
     "format:fix": "./package.sh both run format:fix",
     "postinstall": "./package.sh both install"
+    "test": "./package.sh both run test",
+    "test:fix": "./package.sh both run test:fix",
   }
 }
