@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run: |
              cd $PACKAGE_LOCATION
-             npm install
+             npm Install
              npm run format
              npm run lint
              npm run build
