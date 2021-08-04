@@ -1,5 +1,5 @@
 ## Break Solana Game [![Build Status](https://travis-ci.org/solana-labs/break.svg?branch=master)](https://travis-ci.org/solana-labs/break)
-
+major version test
 ### How it works
 
 The Break Solana Game consists of a 3 parts: a web client frontend, a web server backend, and an on-chain Solana program. The web server backend
