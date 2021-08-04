@@ -19,6 +19,11 @@ jobs:
              - name : Server
                env: PACKAGE_LOCATION=server
     runs-on: ${{ matrix.os }}
+#     env:
+#        - name: Client
+#          PACKAGE_LOCATION: client
+#        - name : Server
+#          PACKAGE_LOCATION: server
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
