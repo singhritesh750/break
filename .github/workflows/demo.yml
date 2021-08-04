@@ -7,7 +7,7 @@ on:
     branches:  [master]
 
 jobs:
-  build:
+  client:
     name : test
     strategy:
       matrix:
