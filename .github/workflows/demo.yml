@@ -1,3 +1,4 @@
+
 name: node_js
 on:
   push:
@@ -10,7 +11,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest,macos-latest]        
-        node-version: [lts/*]
     runs-on: ${{ matrix.os }}
     env:
       PACKAGE_LOCATION: client
@@ -20,7 +20,8 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+            node-version: lts/*
+
       - name: Build
         run: |
           cd $PACKAGE_LOCATION
@@ -33,7 +34,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest,macos-latest]        
-        node-version: [lts/*]
     runs-on: ${{ matrix.os }}
     env:
       PACKAGE_LOCATION: server
@@ -43,7 +43,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+           node-version: lts/*
       - name: Build
         run: |
           cd $PACKAGE_LOCATION
