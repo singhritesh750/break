@@ -1,26 +1,19 @@
 name: node_js
-
 on:
   push:
-    branches:  [master]
+    branches: [master]
   pull_request:
-    branches:  [master]
+    branches: [master]
 
 jobs:
   client:
-#     name : test
     strategy:
       matrix:
-        os : [ ubuntu-latest] 
+        os: [ubuntu-latest,macos-latest, windows-latest]        
         node-version: [lts/*]
-#         include:
-#              - name: Client
-#                env : PACKAGE_LOCATION=client
-#              - name : Server
-#                env: PACKAGE_LOCATION=server
     runs-on: ${{ matrix.os }}
     env:
-       PACKAGE_LOCATION: client
+      PACKAGE_LOCATION: client
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -30,9 +23,32 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Build
         run: |
-             cd $PACKAGE_LOCATION 
-             npm ci
-             npm run format
-             npm run lint
-             npm run build
-             npm run test
+          cd $PACKAGE_LOCATION
+          npm ci
+          npm run format
+          npm run lint
+          npm run build
+          npm run test
+  server:
+    strategy:
+      matrix:
+        os: [ubuntu-latest,macos-latest, windows-latest]        
+        node-version: [lts/*]
+    runs-on: ${{ matrix.os }}
+    env:
+      PACKAGE_LOCATION: server
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Build
+        run: |
+          cd $PACKAGE_LOCATION
+          npm ci
+          npm run format
+          npm run lint
+          npm run build
+          npm run test    
