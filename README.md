@@ -1,4 +1,4 @@
-## Break Solana Game [![Build Status](https://travis-ci.org/solana-labs/break.svg?branch=master)](https://travis-ci.org/solana-labs/break)
+<!-- ## Break Solana Game [![Build Status](https://travis-ci.org/solana-labs/break.svg?branch=master)](https://travis-ci.org/solana-labs/break) -->
 
 ### How it works
 
